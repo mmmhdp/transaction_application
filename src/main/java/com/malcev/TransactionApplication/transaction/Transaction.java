@@ -3,9 +3,6 @@ package com.malcev.TransactionApplication.transaction;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 @Entity
 @Table
 @Getter
@@ -33,9 +30,9 @@ public class Transaction {
     private Long trAmount;
     private Long trTerminalId;
 
-    public Transaction(Long trCustomerId, LocalDateTime trDatetime, Long trType, Long trAmount, Long trTerminalId) {
+    public Transaction(Long trCustomerId, String trDatetime, Long trMssCodeType, Long trType, Long trAmount, Long trTerminalId) {
         this.trCustomerId = trCustomerId;
-        this.trDatetime = trDatetime.format(DateTimeFormatter.ofPattern("dd HH:mm:ss"));
+        this.trDatetime = trDatetime;
         this.trMssCodeType = trMssCodeType;
         this.trType = trType;
         this.trAmount = trAmount;
