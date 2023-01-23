@@ -1,4 +1,4 @@
-package com.malcev.TransactionApplication.transaction;
+package com.malcev.TransactionApplication.models;
 
 import jakarta.persistence.*;
 import lombok.*;

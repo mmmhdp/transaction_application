@@ -1,5 +1,7 @@
-package com.malcev.TransactionApplication.transaction;
+package com.malcev.TransactionApplication.config;
 
+import com.malcev.TransactionApplication.models.Transaction;
+import com.malcev.TransactionApplication.repository.TransactionRepository;
 import org.slf4j.LoggerFactory;
 
 import org.slf4j.Logger;
@@ -10,12 +12,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class TransactionConfig {
-    private static final Logger log = LoggerFactory.getLogger(TransactionConfig.class);
+    private static final Logger transactionDatabaseInitLogger = LoggerFactory.getLogger(TransactionConfig.class);
 
     @Bean
     CommandLineRunner initDatabase(TransactionRepository transactionRepository){
         return args -> {
-            log.info("Preloading"
+            transactionDatabaseInitLogger.info("Preloading"
                     + transactionRepository
                     .save(new Transaction(
                             111111L,
@@ -24,7 +26,7 @@ public class TransactionConfig {
                             1000L,
                             -5224L,
                             111111L)));
-            log.info("Preloading"
+            transactionDatabaseInitLogger.info("Preloading"
                     + transactionRepository
                     .save(new Transaction(
                             111111L,
@@ -34,7 +36,7 @@ public class TransactionConfig {
                             +1231L,
                             111111L)));
 
-            log.info("Preloading"
+            transactionDatabaseInitLogger.info("Preloading"
                     + transactionRepository
                     .save(new Transaction(
                             111112L,
