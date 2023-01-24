@@ -16,15 +16,4 @@ public class TransactionService {
         this.transactionRepository = transactionRepository;
     }
 
-    public List<Transaction> getAllTransactionsByUserId(Long userId){
-        return null;
-    }
-
-    public List<Transaction> getAllTr(){
-        return transactionRepository.findAll();
-    }
-
-    public void saveNewTr(Transaction newTransaction){
-        transactionRepository.save(newTransaction);
-    }
 }

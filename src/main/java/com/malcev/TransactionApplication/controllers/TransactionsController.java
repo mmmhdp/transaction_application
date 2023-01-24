@@ -17,12 +17,6 @@ public class TransactionsController {
         this.transactionService = transactionService;
     }
 
-    //    @GetMapping("/{userId}")
-//    public String showPageWithAllCustomersTransactions(@PathVariable Long userId, Model model){
-//        вернет список транзакций пользователя за всё время
-//        model.addAttribute("transactionsListForByUserId", transactionService.getAllTransactionsByUserId(userId);
-//        return "transactions/showPageWithAllCustomersTransactions";
-//    }
     @GetMapping("/{userId}/average")
     public String showPageWithAverageAmountAndSortedCustomersTransactionsPerThatDays(@PathVariable String userId, Model model) {
         //вернет отсортированный список средних значений по полю amount для транзакций текущего пользователя,
@@ -48,28 +42,4 @@ public class TransactionsController {
         //страница с формой для удаления новой транзакции с заполнением данных руками
         return null;
     }
-
-    @GetMapping("/")
-    public String getAll(Model model) {
-        model.addAttribute("list", transactionService.getAllTr());
-        return "test-page";
-    }
-
-    @GetMapping("/{id}")
-    public String showTrNumber(@PathVariable(required = false) Long id, Model model) {
-        model.addAttribute("trNumber", id);
-        return "customer/user-page";
-    }
-
-    @GetMapping("/new")
-    public String showNewTransaction(@ModelAttribute("newTransaction") Transaction newTransaction){
-        return "creations-of-new-transaction-page";
-    }
-
-    @PostMapping("/new")
-    public String addNewTransaction(@ModelAttribute("newTransaction") Transaction newTransaction){
-        transactionService.saveNewTr(newTransaction);
-        return "redirect:/transactions/";
-    }
-
 }
