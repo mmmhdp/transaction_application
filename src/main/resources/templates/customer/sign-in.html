@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <title>init page</title>
+</head>
+<body>
+
+введите данные пользователя для продолжения
+<br/>
+
+  <form th:method="POST" th:action="@{/customer/sing-in}" th:object="${existedCustomer}">
+    <label for="customerName">name</label>
+    <input name="name" th:field="*{name}" id="customerName">
+      <br/>
+    <label for="customerSurname">surname</label>
+    <input name="customerSurname" th:field="*{surname}" id="customerSurname">
+      <br/>
+    <label for="customerPassword">password</label>
+    <input name="customerPassword" th:field="*{password}" id="customerPassword">
+      <br/>
+
+    <input type="submit" value="перейти на страницу данного пользователя">
+</form>
+
+</body>
+</html>
