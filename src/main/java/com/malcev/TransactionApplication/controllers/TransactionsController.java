@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/transactions")
+@RequestMapping("session/{customerId}/transactions")
 public class TransactionsController {
     private final TransactionService transactionService;
 
@@ -17,28 +17,33 @@ public class TransactionsController {
         this.transactionService = transactionService;
     }
 
-    @GetMapping("/{userId}/average")
-    public String showPageWithAverageAmountAndSortedCustomersTransactionsPerThatDays(@PathVariable String userId, Model model) {
+    @GetMapping("/average")
+    public String showPageWithAverageAmountAndSortedCustomersTransactionsPerThatDays(Model model, @PathVariable String customerId) {
         //вернет отсортированный список средних значений по полю amount для транзакций текущего пользователя,
         //сгруппировав данные по дню, а в рамках дня по MCC коду со следующими условиями:
         //MCC коды, встречаются в выборке более чем 60000 раз;
         return null;
     }
 
-    @PostMapping("/{userId}/new-custom")
-    public String addNewTransactionForCustomerTransactions(@PathVariable Long userId, Model model) {
+    @GetMapping("/all")
+    public String showAllCustomerTransactions(Model model, @PathVariable String customerId){
+        model.addAttribute("transactionsList",
+                transactionService.getAllTransactionsForCustomerByCustomerId(customerId));
+        return "transactions/all";
+    }
+    @PostMapping("/new")
+    public String addNewTransactionForCustomerTransactions(Model model, @PathVariable String customerId) {
+        //страница с формой для создания новой транзакции с заполнением данных руками
+        return null;
+    }
+    @PostMapping("/new-csv")
+    public String addCsvFileWithTransactionForCustomer(Model model, @PathVariable String customerId) {
         //страница с формой для создания новой транзакции с заполнением данных руками
         return null;
     }
 
-    @PostMapping("/{userId}/new-csv")
-    public String addCsvFileWithTransactionForCustomer(@PathVariable Long userId, Model model) {
-        //страница с формой для создания новой транзакции с заполнением данных руками
-        return null;
-    }
-
-    @DeleteMapping("/{userId}/delete")
-    public String deleteTransaction(@PathVariable String userId) {
+    @DeleteMapping("/delete")
+    public String deleteTransaction(@PathVariable String customerId) {
         //страница с формой для удаления новой транзакции с заполнением данных руками
         return null;
     }

@@ -2,15 +2,16 @@
 <html lang="eng" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>init page</title>
+    <title>стартовая страница</title>
 </head>
 <body>
-
+<p> добро пожаловать в наше приложения для ведения учёта транзакций</p>
+<br/>
 выберите способ инициализации сессии
 <br/>
-<a th:href="@{/session/sign-in}">sing in</a>
+<a th:href="@{/session/sign-in}">войти в существующий аккаунт</a>
 <br/>
-<a th:href="@{/session/sign-up}">sing up</a>
+<a th:href="@{/session/sign-up}">зарегистрировать новый аккаунт</a>
 
 </body>
 </html>

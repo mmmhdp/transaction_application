@@ -2,21 +2,21 @@
 <html lang="eng">
 <head>
   <meta charset="UTF-8">
-  <title>init page</title>
+  <title>инициализация</title>
 </head>
 <body>
 
 введите данные пользователя для продолжения
 <br/>
 
-  <form th:method="POST" th:action="@{/customer/sing-in}" th:object="${existedCustomer}">
-    <label for="customerName">name</label>
+  <form th:method="POST" th:action="@{/session/sign-in}"  th:object="${existedCustomer}">
+    <label for="customerName">имя</label>
     <input name="name" th:field="*{name}" id="customerName">
       <br/>
-    <label for="customerSurname">surname</label>
+    <label for="customerSurname">фамилия</label>
     <input name="customerSurname" th:field="*{surname}" id="customerSurname">
       <br/>
-    <label for="customerPassword">password</label>
+    <label for="customerPassword">пароль</label>
     <input name="customerPassword" th:field="*{password}" id="customerPassword">
       <br/>
 

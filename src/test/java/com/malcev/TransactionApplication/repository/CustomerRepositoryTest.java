@@ -1,19 +1,21 @@
 package com.malcev.TransactionApplication.repository;
 
+import com.malcev.TransactionApplication.models.Customer;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
 @SpringBootTest
 class CustomerRepositoryTest {
 
-    private GenderTrainRepository genderTrainRepository;
-    @Autowired
-    public CustomerRepositoryTest(GenderTrainRepository genderTrainRepository) {
-        this.genderTrainRepository = genderTrainRepository;
+    private final CustomerRepository customerRepository;
+
+    CustomerRepositoryTest(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
     @Test
-    public void Test() {
+    public void saveNewCustomer(){
+
     }
 }

@@ -2,7 +2,7 @@
 <html lang="eng">
 <head>
     <meta charset="UTF-8">
-    <title>sign up</title>
+    <title>регистрация</title>
 </head>
 
 <body>
@@ -11,13 +11,13 @@
 <br/>
 
 <form th:method="POST" th:action="@{/session/sign-up}" th:object="${newCustomer}">
-    <label for="customerName">name</label>
+    <label for="customerName">имя</label>
     <input name="name" th:field="*{name}" id="customerName">
     <br/>
-    <label for="customerSurname">surname</label>
+    <label for="customerSurname">фамилия</label>
     <input name="surname" th:field="*{surname}" id="customerSurname">
     <br/>
-    <label for="customerPassword">password</label>
+    <label for="customerPassword">пароль</label>
     <input name="password" th:field="*{password}" id="customerPassword">
     <br/>
 
