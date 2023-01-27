@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="eng" xmlns:th="http://thymeleaf.org">
+<html lang="eng">
 <head>
     <meta charset="UTF-8">
     <title>страница пользователя</title>
 </head>
 <body>
-страница пользователя с id:
-<p th:text="${customerId}">customerId</p>
-    <a th:href="@{'/session/' + ${customerId} + '/transactions/new'}">добавить новую транзакцию</a>
+страница пользователя с id: <a th:text="${customerId}">customerId</a>
+<p>
+<a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций пользователя
+</a>
 <br/>
-    <a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций пользователя с id:
-        <b th:text="${customerId}">text</b>
-    </a>
+<a th:href="@{'/session/'+ ${customerId} + '/transactions/new-csv'}">добавить транзакции из csv файла
+</a>
+</p>
 </body>
 </html>

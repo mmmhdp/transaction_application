@@ -31,20 +31,4 @@ public class TransactionsController {
                 transactionService.getAllTransactionsForCustomerByCustomerId(customerId));
         return "transactions/all";
     }
-    @PostMapping("/new")
-    public String addNewTransactionForCustomerTransactions(Model model, @PathVariable String customerId) {
-        //страница с формой для создания новой транзакции с заполнением данных руками
-        return null;
-    }
-    @PostMapping("/new-csv")
-    public String addCsvFileWithTransactionForCustomer(Model model, @PathVariable String customerId) {
-        //страница с формой для создания новой транзакции с заполнением данных руками
-        return null;
-    }
-
-    @DeleteMapping("/delete")
-    public String deleteTransaction(@PathVariable String customerId) {
-        //страница с формой для удаления новой транзакции с заполнением данных руками
-        return null;
-    }
 }
