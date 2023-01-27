@@ -8,13 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(
-        name = "gender_train",
-        uniqueConstraints = @UniqueConstraint(
-                name = "gender_unique",
-                columnNames = "gender"
-        )
-)
 public class GenderTrain {
     @Id
     @SequenceGenerator(
@@ -27,10 +20,6 @@ public class GenderTrain {
             generator = "gender_sequence"
     )
     private Long genderId;
-    @Column(
-            name = "gender",
-            nullable = false
-    )
     private String gender;
 
     public GenderTrain(String gender) {

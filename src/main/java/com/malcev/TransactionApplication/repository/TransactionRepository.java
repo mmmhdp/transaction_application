@@ -1,9 +1,7 @@
 package com.malcev.TransactionApplication.repository;
 
 import com.malcev.TransactionApplication.models.Transaction;
-import com.malcev.TransactionApplication.models.TransactionAvgDayResultsDto;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

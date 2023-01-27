@@ -1,4 +1,4 @@
-package com.malcev.TransactionApplication.controllers;
+package com.malcev.TransactionApplication.controllers.CsvParsers;
 
 import com.malcev.TransactionApplication.models.Transaction;
 import com.malcev.TransactionApplication.service.TransactionService;
@@ -7,10 +7,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
@@ -20,6 +17,7 @@ import java.io.Reader;
 import java.util.List;
 
 @Controller
+@RequestMapping("session/{customerId}/transactions/new-csv")
 public class TransactionsUploadFromCsvController {
     private final TransactionService transactionService;
 
@@ -27,12 +25,12 @@ public class TransactionsUploadFromCsvController {
         this.transactionService = transactionService;
     }
 
-    @GetMapping("session/{customerId}/transactions/new-csv")
+    @GetMapping
     public String showPageWithCsvFileWithTransactionForCustomer(@PathVariable String customerId, Model model){
         model.addAttribute("customerId", customerId);
         return "transactions/parse-transactions-from-csv";
     }
-    @PostMapping("session/{customerId}/transactions/new-csv")
+    @PostMapping
     public String addCsvFileWithTransactionForCustomer(@RequestParam ("file") MultipartFile file, Model model, @PathVariable String customerId) {
 
         if (file.isEmpty()){

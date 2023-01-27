@@ -1,8 +1,8 @@
 package com.malcev.TransactionApplication.service;
 
 import com.malcev.TransactionApplication.models.Transaction;
-import com.malcev.TransactionApplication.models.TransactionAvgDayResultsDto;
-import com.malcev.TransactionApplication.repository.AvgRepo;
+import com.malcev.TransactionApplication.models.DTO.TransactionAvgDayResultsDto;
+import com.malcev.TransactionApplication.repository.DTO.TransactionAvgDayResultsDtoRepository;
 import com.malcev.TransactionApplication.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +13,16 @@ import java.util.List;
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
-    private final AvgRepo avgRepo;
+    private final TransactionAvgDayResultsDtoRepository transactionAvgDayResultsDtoRepository;
     @Autowired
-    public TransactionService(TransactionRepository transactionRepository, AvgRepo avgRepo) {
+    public TransactionService(TransactionRepository transactionRepository, TransactionAvgDayResultsDtoRepository transactionAvgDayResultsDtoRepository) {
         this.transactionRepository = transactionRepository;
-        this.avgRepo = avgRepo;
+        this.transactionAvgDayResultsDtoRepository = transactionAvgDayResultsDtoRepository;
     }
     public Transaction saveTransactionToCustomersTransactionsList(Transaction transactionToSave, String customerId){
         Transaction trToSave = Transaction.builder()
 //                .trCustomerId(Long.valueOf(customerId))
+                // возможен переход на внесение транзакций под id текущего пользователяGender
                 .trCustomerId(transactionToSave.getTrCustomerId())
                 .trDatetime(transactionToSave.getTrDatetime())
                 .trMssCodeType(transactionToSave.getTrMssCodeType())
@@ -38,8 +39,7 @@ public class TransactionService {
         List<Transaction> transactionList = transactionRepository.findAllByTrCustomerIdOrderByTrDatetime(customerIdLong);
         return transactionList;
     }
-    public List<TransactionAvgDayResultsDto> print(){
-//        return transactionRepository.findAllByTest();
-        return avgRepo.findAll();
+    public List<TransactionAvgDayResultsDto> getAvgResultsWithSpecificParameters(){
+        return transactionAvgDayResultsDtoRepository.findAll();
     }
 }

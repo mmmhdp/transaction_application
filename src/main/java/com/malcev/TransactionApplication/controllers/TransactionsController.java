@@ -1,10 +1,7 @@
 package com.malcev.TransactionApplication.controllers;
 
-import com.malcev.TransactionApplication.models.Transaction;
-import com.malcev.TransactionApplication.models.TransactionAvgDayResultsDto;
 import com.malcev.TransactionApplication.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +18,7 @@ public class TransactionsController {
 
     @GetMapping("/average")
     public String showPageWithAverageAmountAndSortedCustomersTransactionsPerThatDays(Model model, @PathVariable String customerId) {
-        model.addAttribute("list", transactionService.print());
+        model.addAttribute("list", transactionService.getAvgResultsWithSpecificParameters());
         return "transactions/average";
     }
 
