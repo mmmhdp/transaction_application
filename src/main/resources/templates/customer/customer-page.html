@@ -7,11 +7,15 @@
 <body>
 страница пользователя с id: <a th:text="${customerId}">customerId</a>
 <p>
-<a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций пользователя
-</a>
-<br/>
-<a th:href="@{'/session/'+ ${customerId} + '/transactions/new-csv'}">добавить транзакции из csv файла
-</a>
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций пользователя
+    </a>
+    <br/>
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/new-csv'}">добавить транзакции из csv файла
+    </a>
+    <br/>
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/average'}">список средних значений суммы транзакций по дням
+    </a>
 </p>
+<p><a th:href="@{/session}">выйти из аккаунта</a></p>
 </body>
 </html>

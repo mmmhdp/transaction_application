@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>список транзакций</title>
+</head>
+<body>
+Список транзакций пользователя:
+<br/>
+<tr th:each="transaction : ${transactionsList}">
+    номер транзакции
+    <td th:text="${transaction.getTrId()}">trId</td>
+    время
+    <td th:text="${transaction.getTrDatetime()}">trTime</td>
+    mss-код
+    <td th:text="${transaction.getTrMssCodeType()}">trMssCode/</td>
+    тип
+    <td th:text="${transaction.getTrType()}">trType</td>
+    сумма
+    <td th:text="${transaction.getTrAmount()}">trAmount</td>
+    терминал
+    <td th:text="${transaction.getTrTerminalId()}">trTerminalId</td>
+    <br/>
+</tr>
+</body>
+</html>

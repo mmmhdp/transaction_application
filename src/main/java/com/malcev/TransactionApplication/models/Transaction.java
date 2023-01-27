@@ -5,6 +5,10 @@ import com.opencsv.bean.CsvBindByPosition;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,16 +26,17 @@ public class Transaction {
             generator = "transaction_sequence"
     )
     private Long trId;
-    private Long trCustomerId;
     @CsvBindByPosition(position = 0)
-    private String trDatetime;
+    private Long trCustomerId;
     @CsvBindByPosition(position = 1)
-    private Long trMssCodeType;
+    private String trDatetime;
     @CsvBindByPosition(position = 2)
-    private Long trType;
+    private Long trMssCodeType;
     @CsvBindByPosition(position = 3)
-    private Long trAmount;
+    private Long trType;
     @CsvBindByPosition(position = 4)
+    private Long trAmount;
+    @CsvBindByPosition(position = 5)
     private Long trTerminalId;
 
     public Transaction(Long trCustomerId, String trDatetime, Long trMssCodeType, Long trType, Long trAmount, Long trTerminalId) {
