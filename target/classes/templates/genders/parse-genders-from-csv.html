@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>добавление гендеров</title>
+</head>
+<body>
+
+
+<form method="POST" th:action="@{'/session/'+${customerId}+'/genders/new-csv'}" enctype="multipart/form-data">
+    <div class="form-group mt-3">
+        <label for="file">выберите CSV файл для считывания</label>
+        <input type="file" name="file" class="form-control-file" id="file" accept=".csv">
+    </div>
+    <button type="submit" class="btn btn-primary">записать гендеры в базу данных</button>
+</form>
+
+
+</body>
+</html>

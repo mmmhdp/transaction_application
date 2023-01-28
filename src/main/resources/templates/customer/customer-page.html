@@ -7,16 +7,21 @@
 <body>
 страница пользователя с id: <a th:text="${customerId}">customerId</a>
 <p>
-    <a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций пользователя
-    </a>
-    <br/>
-    <a th:href="@{'/session/'+ ${customerId} + '/transactions/new-csv'}">добавить транзакции из csv файла
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций текущего пользователя
     </a>
     <br/>
     <a th:href="@{'/session/'+ ${customerId} + '/transactions/average'}">список средних значений суммы транзакций по дням
     </a>
     <br/>
+    <p>работа с csv файлами</p>
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/new-csv'}">добавить транзакции из csv файла
+    </a>
+    <br/>
     <a th:href="@{'/session/'+ ${customerId} + '/genders/new-csv'}">добавить гендеры из csv файла</a>
+    <br/>
+    <a th:href="@{'/session/'+ ${customerId} + '/mcc-code/new-csv'}">добавить mcc коды для транзакцмй из csv файла</a>
+    <br/>
+    <a th:href="@{'/session/'+ ${customerId} + '/transaction-type/new-csv'}">добавить типы транзакцмй из csv файла</a>
 </p>
 <p><a th:href="@{/session}">выйти из аккаунта</a></p>
 </body>

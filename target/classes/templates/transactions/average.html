@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>средние значение</title>
+</head>
+<body>
+
+<tr th:each="avgDayInfo : ${list}">
+    день
+    <td th:text="${avgDayInfo.getDay()}">day</td>
+    код
+    <td th:text="${avgDayInfo.getMssCode()}">mssCode</td>
+    среднее значение транзакций за день по данному mss-коду
+    <td th:text="${avgDayInfo.getAvgAmount()}">avgAmount</td>
+    частота появления кода
+    <td th:text="${avgDayInfo.getMssCodeCounter()}">mssCodeCounter</td>
+    <br/>
+</tr>
+
+</body>
+</html>

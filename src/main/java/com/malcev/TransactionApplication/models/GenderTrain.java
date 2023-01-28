@@ -1,5 +1,6 @@
 package com.malcev.TransactionApplication.models;
 
+import com.opencsv.bean.CsvBindByPosition;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,19 +11,8 @@ import lombok.*;
 @Builder
 public class GenderTrain {
     @Id
-    @SequenceGenerator(
-            name = "gender_sequence",
-            sequenceName = "gender_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "gender_sequence"
-    )
-    private Long genderId;
+    @CsvBindByPosition(position = 0)
+    private Long CustomerId;
+    @CsvBindByPosition(position = 1)
     private String gender;
-
-    public GenderTrain(String gender) {
-        this.gender = gender;
-    }
 }
