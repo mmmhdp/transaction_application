@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-@Configuration
+//@Configuration
 public class TransactionConfig {
     private static final Logger transactionDatabaseInitLogger = LoggerFactory.getLogger(TransactionConfig.class);
 
-    @Bean
+//    @Bean
     CommandLineRunner initDatabase(TransactionRepository transactionRepository){
         return args -> {
             transactionDatabaseInitLogger.info("Preloading"

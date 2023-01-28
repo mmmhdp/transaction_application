@@ -22,6 +22,8 @@
     <a th:href="@{'/session/'+ ${customerId} + '/mcc-code/new-csv'}">добавить mcc коды для транзакцмй из csv файла</a>
     <br/>
     <a th:href="@{'/session/'+ ${customerId} + '/transaction-type/new-csv'}">добавить типы транзакцмй из csv файла</a>
+    <br/>
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/export-to-csv'}">импортировать транзакции текущего пользователя в csv формате</a>
 </p>
 <p><a th:href="@{/session}">выйти из аккаунта</a></p>
 </body>
