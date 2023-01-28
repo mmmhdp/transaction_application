@@ -15,4 +15,8 @@ public class GenderTrain {
     private Long CustomerId;
     @CsvBindByPosition(position = 1)
     private String gender;
+
+    public GenderTrain(Long customerId) {
+        CustomerId = customerId;
+    }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>добавление типов транзакций кодов</title>
+</head>
+<body>
+
+
+<form method="POST" th:action="@{'/session/'+${customerId}+'/transaction-type/new-csv'}" enctype="multipart/form-data">
+  <div class="form-group mt-3">
+    <label for="file">выберите CSV файл для считывания</label>
+    <input type="file" name="file" class="form-control-file" id="file" accept=".csv">
+  </div>
+  <button type="submit" class="btn btn-primary">записать типы транзакций в базу данных</button>
+</form>
+
+
+</body>
+</html>

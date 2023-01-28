@@ -20,7 +20,7 @@ public class TransactionConfig {
             transactionDatabaseInitLogger.info("Preloading"
                     + transactionRepository
                     .save(new Transaction(
-                            111111L,
+                            1L,
                             "15 01:40:52",
                             1111L,
                             1000L,
@@ -29,7 +29,7 @@ public class TransactionConfig {
             transactionDatabaseInitLogger.info("Preloading"
                     + transactionRepository
                     .save(new Transaction(
-                            111111L,
+                            2L,
                             "15 02:40:52",
                             1111L,
                             1000L,
@@ -39,7 +39,7 @@ public class TransactionConfig {
             transactionDatabaseInitLogger.info("Preloading"
                     + transactionRepository
                     .save(new Transaction(
-                            111112L,
+                            3L,
                             "15 15:18:32",
                             3333L,
                             2000L,

@@ -20,10 +20,10 @@ public class CustomerConfig {
                            .save(new Customer("nikita","malcev","1234")));
             customerDatabaseInitLogger.info("Preload customer:" +
                     customerRepository
-                            .save(new Customer("danil","tarasov","5432")));
+                            .save(new Customer("masha","tarasova","5432")));
             customerDatabaseInitLogger.info("Preload customer:" +
                     customerRepository
-                            .save(new Customer("vova","pumpkinov","0020")));
+                            .save(new Customer("hercules","pumpkinov","0000")));
         } ;
     }
 }
