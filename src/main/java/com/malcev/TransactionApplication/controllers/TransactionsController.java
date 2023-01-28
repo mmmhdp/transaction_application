@@ -24,7 +24,7 @@ public class TransactionsController {
 
     @GetMapping("/average")
     public String showPageWithAverageAmountAndSortedCustomersTransactionsPerThatDays(Model model, @PathVariable String customerId) {
-        model.addAttribute("list", transactionService.getAvgResultsWithSpecificParameters());
+        model.addAttribute("list", transactionService.getAvgResultsWithSpecificParametersForCustomer(Long.parseLong(customerId)));
         return "transactions/average";
     }
 

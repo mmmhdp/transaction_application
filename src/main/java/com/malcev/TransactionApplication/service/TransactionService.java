@@ -39,7 +39,7 @@ public class TransactionService {
         List<Transaction> transactionList = transactionRepository.findAllByTrCustomerIdOrderByTrDatetime(customerIdLong);
         return transactionList;
     }
-    public List<TransactionAvgDayResultsDto> getAvgResultsWithSpecificParameters(){
-        return transactionAvgDayResultsDtoRepository.findAll();
+    public List<TransactionAvgDayResultsDto> getAvgResultsWithSpecificParametersForCustomer(Long customerId){
+        return transactionAvgDayResultsDtoRepository.findAllForCustomerByCustomerId(customerId);
     }
 }
