@@ -10,7 +10,8 @@
     <a th:href="@{'/session/'+ ${customerId} + '/transactions/all'}">список всех транзакций текущего пользователя
     </a>
     <br/>
-    <a th:href="@{'/session/'+ ${customerId} + '/transactions/average'}">список средних значений суммы транзакций по дням
+    <a th:href="@{'/session/'+ ${customerId} + '/transactions/average'}">список средних значений сумм транзакций
+        отсортированный по дням и mcc коду для текущего пользователя
     </a>
     <br/>
     <p>работа с csv файлами</p>
